@@ -1,0 +1,24 @@
+nav {
+  background: rgb(29, 29, 29);
+  width: 200px;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  margin-right: 50px;
+}
+
+a {
+  color: white;
+  cursor: pointer;
+  border-bottom: 0.5px solid black;
+  border-top: 0.5px solid black;
+  box-shadow: inset 0 0 1em black;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  background: indigo;
+  color: white;
+  border-left: 1px solid white;
+  text-transform: 1.2rem;
+}
