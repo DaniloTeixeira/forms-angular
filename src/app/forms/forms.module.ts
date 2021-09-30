@@ -5,10 +5,11 @@ import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
 import { TemplateComponent } from './template';
 import { ReactiveComponent } from './reactive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormsComponent, TemplateComponent, ReactiveComponent],
-  imports: [CommonModule, FormsRoutingModule],
+  imports: [CommonModule, FormsRoutingModule, FormsModule],
   exports: [TemplateComponent, ReactiveComponent],
 })
-export class FormsModule {}
+export class FormulariosModule {}
