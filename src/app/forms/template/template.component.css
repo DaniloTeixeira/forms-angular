@@ -8,3 +8,13 @@
 .ng-invalid.ng-touched:not(form) {
   border: 1px solid red;
 }
+
+form {
+  width: 80vw;
+}
+
+/* .btn {
+  display: flex;
+  width: 50%;
+  
+} */
