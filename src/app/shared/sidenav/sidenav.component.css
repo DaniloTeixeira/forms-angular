@@ -7,7 +7,7 @@ nav {
   margin-right: 40px;
 }
 
-a {
+.nav-link {
   color: white;
   cursor: pointer;
   border-bottom: 0.5px solid black;
@@ -16,9 +16,18 @@ a {
   transition: all 0.5s ease;
 }
 
-a:hover {
+.nav-link:hover {
   background: indigo;
   color: white;
   border-left: 1px solid white;
   text-transform: 1.2rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkgrey;
 }

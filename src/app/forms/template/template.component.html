@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <h2 class="text-primary mt-3">Template Form</h2>
-  <form class="mt-4" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form class="mt-4" #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="row mb-3">
       <div class="form-group col-md-6">
         <label for="nome">Nome</label>
@@ -51,6 +51,7 @@
         -->
     </div>
 
+    <!-- <div ngModelGroup="endereço"> -->
     <div class="row">
       <div class="col-md-3">
         <label for="cep" class="control-label">CEP</label>
@@ -62,6 +63,7 @@
           ngModel
           required
           #cep="ngModel"
+          (blur)="consultaCep($event)"
         />
         <span class="text-danger" *ngIf="!cep.valid && cep.touched">
           CEP é obrigatório!
@@ -92,15 +94,8 @@
           id="complemento"
           name="complemento"
           ngModel
-          required
           #complemento="ngModel"
         />
-        <span
-          class="text-danger"
-          *ngIf="!complemento.valid && complemento.touched"
-        >
-          Complemento é obrigatório!
-        </span>
       </div>
     </div>
 
@@ -117,7 +112,7 @@
           #rua="ngModel"
         />
         <span class="text-danger" *ngIf="!rua.valid && rua.touched">
-          Rua é obrigatória!
+          Rua é obrigatório!
         </span>
       </div>
     </div>
@@ -142,7 +137,7 @@
       <div class="col-md-4">
         <label for="cidade" class="control-label">Cidade</label>
         <input
-          type="number"
+          type="text"
           class="form-control"
           id="cidade"
           name="cidade"
@@ -151,7 +146,7 @@
           #cidade="ngModel"
         />
         <span class="text-danger" *ngIf="!cidade.valid && cidade.touched">
-          Cidade é obrigatória!
+          Cidade é obrigatório!
         </span>
       </div>
 
@@ -171,6 +166,7 @@
         </span>
       </div>
     </div>
+    <!-- </div> -->
 
     <button class="btn btn-primary mt-2" [disabled]="!f.valid" type="submit">
       Enviar
