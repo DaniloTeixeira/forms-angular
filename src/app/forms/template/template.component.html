@@ -1,21 +1,177 @@
-<form>
-  <div class="form-group mt-5">
-    <label for="nome">Nome</label>
-    <input
-      type="text"
-      class="form-control"
-      id="nome"
-      placeholder="Digite seu nome"
-    />
-  </div>
-  <div class="form-group mt-2">
-    <label for="email">E-mail</label>
-    <input
-      type="email"
-      class="form-control"
-      id="nome"
-      placeholder="Digite seu e-mail"
-    />
-  </div>
-  <button class="btn btn-primary mt-2" type="submit">Enviar</button>
-</form>
+<!-- #f -> variável local -->
+
+<div class="container-fluid">
+  <h2 class="text-primary mt-3">Template Form</h2>
+  <form class="mt-4" #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="form-group col-md-6">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          placeholder="Digite seu nome"
+          name="nome"
+          [(ngModel)]="user.nome"
+          required
+          #nome="ngModel"
+        />
+        <span class="text-danger" *ngIf="!nome.valid && nome.touched">
+          Nome é obrigatório!
+        </span>
+      </div>
+
+      <!-- 
+            [(ngModel)]="user.nome" -> two way data-binding = O objeto é atualizado juntamente com as mudanças do input
+            [ngModel]="user.nome" -> property-binding = Apenas inicializa o valor, o objeto não é atualizado com as mudanças do input 
+        -->
+
+      <div class="form-group col-md-6">
+        <label for="">E-mail</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Digite seu e-mail"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <span class="text-danger" *ngIf="!email.valid && email.touched">
+          E-mail inválido!
+        </span>
+      </div>
+
+      <!--  
+            required -> diretiva para tornar campo em obrigatório
+            email-> diretiva para validar campo e-mail
+            validador do campo e-mail -> pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+).(\.[a-z]{2,3})$"   
+        -->
+    </div>
+
+    <!-- <div ngModelGroup="endereço"> -->
+    <div class="row">
+      <div class="col-md-3">
+        <label for="cep" class="control-label">CEP</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cep"
+          name="cep"
+          ngModel
+          required
+          #cep="ngModel"
+          (blur)="consultaCep($event)"
+        />
+        <span class="text-danger" *ngIf="!cep.valid && cep.touched">
+          CEP é obrigatório!
+        </span>
+      </div>
+
+      <div class="col-md-3">
+        <label for="numero" class="control-label">Número</label>
+        <input
+          type="number"
+          class="form-control"
+          id="numero"
+          name="numero"
+          ngModel
+          required
+          #numero="ngModel"
+        />
+        <span class="text-danger" *ngIf="!numero.valid && numero.touched">
+          Número é obrigatório!
+        </span>
+      </div>
+
+      <div class="col-md-6">
+        <label for="cep" class="control-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="complemento"
+          name="complemento"
+          ngModel
+          #complemento="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="form-group col-md-12">
+        <label for="nome">Rua</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rua"
+          name="rua"
+          ngModel
+          required
+          #rua="ngModel"
+        />
+        <span class="text-danger" *ngIf="!rua.valid && rua.touched">
+          Rua é obrigatório!
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="cep" class="control-label">Bairro</label>
+        <input
+          type="text"
+          class="form-control"
+          id="bairro"
+          name="bairro"
+          ngModel
+          required
+          #bairro="ngModel"
+        />
+        <span class="text-danger" *ngIf="!bairro.valid && bairro.touched">
+          Bairro é obrigatório!
+        </span>
+      </div>
+
+      <div class="col-md-4">
+        <label for="cidade" class="control-label">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cidade"
+          name="cidade"
+          ngModel
+          required
+          #cidade="ngModel"
+        />
+        <span class="text-danger" *ngIf="!cidade.valid && cidade.touched">
+          Cidade é obrigatório!
+        </span>
+      </div>
+
+      <div class="col-md-4">
+        <label for="cep" class="control-label">Estado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="estado"
+          name="estado"
+          ngModel
+          required
+          #estado="ngModel"
+        />
+        <span class="text-danger" *ngIf="!estado.valid && estado.touched">
+          Estado é obrigatório!
+        </span>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <button class="btn btn-primary mt-2" [disabled]="!f.valid" type="submit">
+      Enviar
+    </button>
+
+    <app-form-debug [form]="f"></app-form-debug>
+  </form>
+</div>

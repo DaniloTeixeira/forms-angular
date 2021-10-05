@@ -1,0 +1,14 @@
+/*
+    class .ng-valid -> Indica que o campo está válido
+    class .ng-invalid ->  Indica que o campo está inválido, por ser obrigarório e não estar preenchido 
+    class .ng-dirty -> Indica que o valor do campo foi alterado
+    class .ng-touched -> Aplica o estilo apenas se o controle(campo) recebeu e perdeu o foco
+    :not(form) -> Aplica o estilo apenas nos campos do form e não na tag form 
+*/
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
+
+form {
+  width: 80vw;
+}
