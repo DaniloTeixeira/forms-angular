@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <h2 class="mt-3">Reactive Form</h2>
+
+  <form class="mt-4" [formGroup]="formulario">
+    <div class="row mb-3">
+      <div class="form-group col-md-6">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          placeholder="Digite seu nome"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">E-mail</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Digite seu e-mail"
+          name="email"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label for="cep" class="control-label">CEP</label>
+        <input type="text" class="form-control" id="cep" name="cep" />
+      </div>
+      <div class="col-md-3">
+        <label for="numero" class="control-label">Número</label>
+        <input type="number" class="form-control" id="numero" name="numero" />
+      </div>
+      <div class="col-md-6">
+        <label for="cep" class="control-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          id="complemento"
+          name="complemento"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="form-group col-md-12">
+        <label for="nome">Rua</label>
+        <input type="text" class="form-control" id="rua" name="rua" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="cep" class="control-label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" name="bairro" />
+      </div>
+      <div class="col-md-4">
+        <label for="cidade" class="control-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" />
+      </div>
+      <div class="col-md-4">
+        <label for="cep" class="control-label">Estado</label>
+        <input type="text" class="form-control" id="estado" name="estado" />
+      </div>
+    </div>
+
+    <button class="btn mt-2" type="submit">Enviar</button>
+
+    <app-form-debug [form]="formulario"></app-form-debug>
+  </form>
+</div>

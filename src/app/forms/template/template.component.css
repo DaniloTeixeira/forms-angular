@@ -12,3 +12,12 @@
 form {
   width: 80vw;
 }
+
+h2 {
+  color: indigo;
+}
+
+.btn {
+  background-color: indigo;
+  color: white;
+}
