@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { ViaCepResponse } from '../../models/ViaCepResponse';
 import { mapToClass } from '../../utils/custom-operators';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +14,6 @@ export class CepService {
   getCep(cep: string): Observable<ViaCepResponse> {
     const url = `https://viacep.com.br/ws/${cep}/json/`;
 
-    return this.http
-      .get(url)
-      .pipe(tap(console.log), mapToClass(ViaCepResponse), tap(console.log));
+    return this.http.get(url).pipe(mapToClass(ViaCepResponse));
   }
 }

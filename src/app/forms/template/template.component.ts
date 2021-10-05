@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { NgForm } from '@angular/forms';
 import { ViaCepResponse } from 'src/app/core/models/ViaCepResponse';
+import { HttpClient } from '@angular/common/http';
 
 import { CepService } from 'src/app/core/services/cep';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -16,12 +19,18 @@ export class TemplateComponent implements OnInit {
 
   @ViewChild('f') ngForm: NgForm;
 
-  constructor(private cepService: CepService) {}
+  constructor(private cepService: CepService, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.ngForm.form.value);
+
+    //Simulação para requisição POST, através do submit
+    this.http
+      .post('https://httpbin.org/post', JSON.stringify(this.ngForm.value))
+      .pipe(map((response) => response))
+      .subscribe((data) => console.log(data));
   }
 
   consultaCep(event: FocusEvent): void {
@@ -35,6 +44,7 @@ export class TemplateComponent implements OnInit {
   private populaForm(response: ViaCepResponse): void {
     this.ngForm.form.patchValue({
       rua: response.logradouro,
+      complemento: response.complemento,
       bairro: response.bairro,
       cidade: response.localidade,
       estado: response.uf,
