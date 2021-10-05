@@ -9,6 +9,7 @@
           type="text"
           class="form-control"
           id="nome"
+          formControlName="nome"
           placeholder="Digite seu nome"
         />
       </div>
@@ -18,8 +19,8 @@
           type="email"
           class="form-control"
           id="email"
+          formControlName="email"
           placeholder="Digite seu e-mail"
-          name="email"
         />
       </div>
     </div>
@@ -27,11 +28,21 @@
     <div class="row">
       <div class="col-md-3">
         <label for="cep" class="control-label">CEP</label>
-        <input type="text" class="form-control" id="cep" name="cep" />
+        <input
+          type="text"
+          class="form-control"
+          id="cep"
+          formControlName="cep"
+        />
       </div>
       <div class="col-md-3">
         <label for="numero" class="control-label">Número</label>
-        <input type="number" class="form-control" id="numero" name="numero" />
+        <input
+          type="number"
+          class="form-control"
+          id="numero"
+          formControlName="numero"
+        />
       </div>
       <div class="col-md-6">
         <label for="cep" class="control-label">Complemento</label>
@@ -39,7 +50,7 @@
           type="text"
           class="form-control"
           id="complemento"
-          name="complemento"
+          formControlName="complemento"
         />
       </div>
     </div>
@@ -47,22 +58,42 @@
     <div class="row mb-3">
       <div class="form-group col-md-12">
         <label for="nome">Rua</label>
-        <input type="text" class="form-control" id="rua" name="rua" />
+        <input
+          type="text"
+          class="form-control"
+          id="rua"
+          formControlName="rua"
+        />
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-4">
         <label for="cep" class="control-label">Bairro</label>
-        <input type="text" class="form-control" id="bairro" name="bairro" />
+        <input
+          type="text"
+          class="form-control"
+          id="bairro"
+          formControlName="bairro"
+        />
       </div>
       <div class="col-md-4">
         <label for="cidade" class="control-label">Cidade</label>
-        <input type="text" class="form-control" id="cidade" name="cidade" />
+        <input
+          type="text"
+          class="form-control"
+          id="cidade"
+          formControlName="cidade"
+        />
       </div>
       <div class="col-md-4">
         <label for="cep" class="control-label">Estado</label>
-        <input type="text" class="form-control" id="estado" name="estado" />
+        <input
+          type="text"
+          class="form-control"
+          id="estado"
+          formControlName="estado"
+        />
       </div>
     </div>
 
