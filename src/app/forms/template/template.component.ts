@@ -25,12 +25,25 @@ export class TemplateComponent implements OnInit {
 
   onSubmit() {
     console.log(this.ngForm.form.value);
+    this.postForm();
+  }
 
+  postForm(): void {
     //Simulação para requisição POST, através do submit
     this.http
       .post('https://httpbin.org/post', JSON.stringify(this.ngForm.value))
       .pipe(map((response) => response))
-      .subscribe((data) => console.log(data));
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.resetForm();
+        },
+        () => alert('Erro, tenet novamente!')
+      );
+  }
+
+  resetForm(): void {
+    this.ngForm.reset();
   }
 
   consultaCep(event: FocusEvent): void {
