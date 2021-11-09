@@ -38,7 +38,7 @@ export class TemplateComponent implements OnInit {
           console.log(data);
           this.resetForm();
         },
-        () => alert('Erro, tenet novamente!')
+        () => alert('Erro, tente novamente!')
       );
   }
 
@@ -46,15 +46,15 @@ export class TemplateComponent implements OnInit {
     this.ngForm.reset();
   }
 
-  consultaCep(event: FocusEvent): void {
+  queryCep(event: FocusEvent): void {
     const target = event.target as HTMLInputElement;
     const cep = target.value;
     this.cepService.getCep(cep).subscribe((response) => {
-      this.populaForm(response);
+      this.populateForm(response);
     });
   }
 
-  private populaForm(response: ViaCepResponse): void {
+  private populateForm(response: ViaCepResponse): void {
     this.ngForm.form.patchValue({
       rua: response.logradouro,
       complemento: response.complemento,

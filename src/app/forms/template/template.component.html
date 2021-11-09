@@ -61,7 +61,7 @@
           ngModel
           required
           #cep="ngModel"
-          (blur)="consultaCep($event)"
+          (blur)="queryCep($event)"
         />
         <span class="text-danger" *ngIf="!cep.valid && cep.touched">
           CEP é obrigatório!
@@ -76,7 +76,6 @@
           id="numero"
           name="numero"
           ngModel
-          required
           #numero="ngModel"
         />
         <span class="text-danger" *ngIf="!numero.valid && numero.touched">

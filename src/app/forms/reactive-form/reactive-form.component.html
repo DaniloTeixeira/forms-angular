@@ -11,6 +11,9 @@
           id="nome"
           formControlName="nome"
         />
+        <span class="text-danger" *ngIf="isInputInvalid('nome')">
+          Nome é obrigatório!
+        </span>
       </div>
       <div class="form-group col-md-6">
         <label for="">E-mail</label>
@@ -20,6 +23,9 @@
           id="email"
           formControlName="email"
         />
+        <span class="text-danger" *ngIf="isInputInvalid('email')">
+          E-mail é obrigatório!
+        </span>
       </div>
     </div>
 
@@ -31,6 +37,7 @@
           class="form-control"
           id="cep"
           formControlName="cep"
+          (blur)="queryCep($event)"
         />
       </div>
       <div class="col-md-3">

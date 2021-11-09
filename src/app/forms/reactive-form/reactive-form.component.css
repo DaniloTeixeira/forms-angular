@@ -10,3 +10,8 @@ h2 {
   background-color: indigo;
   color: white;
 }
+
+/* :not(form) -> Aplica o estilo apenas nos campos do form e não na tag form  */
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
