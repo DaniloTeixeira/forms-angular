@@ -4,18 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
 import { TemplateComponent } from './template';
-import { ReactiveComponent } from './reactive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormDebugComponent } from './form-debug';
 
 @NgModule({
-  declarations: [
-    FormsComponent,
-    TemplateComponent,
-    ReactiveComponent,
-    FormDebugComponent,
-  ],
-  imports: [CommonModule, FormsRoutingModule, FormsModule],
-  exports: [TemplateComponent, ReactiveComponent],
+  declarations: [FormsComponent, TemplateComponent, FormDebugComponent],
+  imports: [CommonModule, FormsRoutingModule, FormsModule, ReactiveFormsModule],
+  exports: [TemplateComponent, FormDebugComponent],
 })
 export class FormulariosModule {}

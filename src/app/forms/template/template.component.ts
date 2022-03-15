@@ -25,23 +25,36 @@ export class TemplateComponent implements OnInit {
 
   onSubmit() {
     console.log(this.ngForm.form.value);
+    this.postForm();
+  }
 
+  postForm(): void {
     //Simulação para requisição POST, através do submit
     this.http
       .post('https://httpbin.org/post', JSON.stringify(this.ngForm.value))
       .pipe(map((response) => response))
-      .subscribe((data) => console.log(data));
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.resetForm();
+        },
+        () => alert('Erro, tente novamente!')
+      );
   }
 
-  consultaCep(event: FocusEvent): void {
+  resetForm(): void {
+    this.ngForm.reset();
+  }
+
+  queryCep(event: FocusEvent): void {
     const target = event.target as HTMLInputElement;
     const cep = target.value;
     this.cepService.getCep(cep).subscribe((response) => {
-      this.populaForm(response);
+      this.populateForm(response);
     });
   }
 
-  private populaForm(response: ViaCepResponse): void {
+  private populateForm(response: ViaCepResponse): void {
     this.ngForm.form.patchValue({
       rua: response.logradouro,
       complemento: response.complemento,

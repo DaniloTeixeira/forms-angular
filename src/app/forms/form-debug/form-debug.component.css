@@ -1,7 +1,11 @@
 .pre {
   margin-top: 20px;
   padding: 20px;
-  background-color: azure;
-  border: 1px solid cornflowerblue;
-  border-radius: 2%;
+  background-color: seashell;
+  border: 1px solid indigo;
+  border-radius: 10px;
+}
+
+.mb-3 {
+  color: indigo;
 }
