@@ -1,3 +1,7 @@
 app-sidenav {
   display: block;
 }
+
+.toast-message {
+  font-size: 12px;
+}
